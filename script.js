@@ -3,6 +3,11 @@ function cancelForm() {
         event.preventDefault()
         document.querySelector('.modal-overlay').classList.remove('active')
     })
+
+    document.querySelector('.modal-overlay').addEventListener('click', (event) => {
+        event.preventDefault()
+        document.querySelector('.modal-overlay').classList.remove('active')
+    } )    
 }
 
 function displayForm() {
