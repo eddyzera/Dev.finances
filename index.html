@@ -50,8 +50,8 @@
                         <th></th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
+                <tbody id="render-data">
+                    <!----<tr>
                         <td class="description">Criação Web Site</td>
                         <td class="income">R$: 5.000,00</td>
                         <td class="date">10/01/2021</td>
@@ -66,16 +66,16 @@
                         <td>
                             <img src="./assets/minus.svg" alt="remover transação">
                         </td>
-                    </tr>
+                    </tr> -->
                 </tbody>
             </table>
         </section>
     </main>
-    <div class="modal-overlay active">
+    <div class="modal-overlay">
         <div class="modal">
             <div id="form">
                 <h2>Nova Transação</h2>
-                <form action="">
+                <form action="" id="form-submit">
                     <div class="input-group">
                         <label class="sr-only" for="description">Descrição</label>
                         <input 
