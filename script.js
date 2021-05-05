@@ -28,7 +28,9 @@ function createTransaction() {
       headers: {
         "Content-type": "application/json; charset=UTF-8",
       },
-    }).then((response) => response.json());
+    })
+    .then((response) => response.json())
+    .then(() => window.location.reload());
   });
 }
 
@@ -49,13 +51,16 @@ async function renderTransaction() {
                       "pt-br"
                     )}</td>
                     <td>
-                        <img src="./assets/minus.svg" alt="remover transação">
+                        <button class="button-delete" value="${item.id}">
+                          <img src="./assets/minus.svg" alt="remover transação">
+                        </button>
                     </td>
                 </tr>
             `;
   });
 
   render.innerHTML = tr.join(" ");
+  fetchDelete();
 }
 
 async function fetchGet() {
@@ -65,7 +70,23 @@ async function fetchGet() {
   const data = await response.json();
   return data;
 }
+
+function fetchDelete() {
+  let buttonDelete = document.querySelectorAll('.button-delete');
+  buttonDelete.forEach(button => {
+    button.addEventListener('click', async (event) => {
+      event.preventDefault();
+      let id = button.getAttribute('value')
+      await fetch(`http://localhost:1337/dev-finances/${id}`, {
+        method: 'DELETE'
+      })
+      window.location.reload()
+    })
+  })
+}
+
 renderTransaction();
 displayForm();
 cancelForm();
 createTransaction();
+

@@ -92,6 +92,14 @@ button:hover {
     opacity: 1;
 }
 
+.button-delete {
+    background: transparent;
+}
+
+.button-delete:hover {
+    background: transparent;
+}
+
 /* === Header === */
 header {
     background: #2D4A22;
